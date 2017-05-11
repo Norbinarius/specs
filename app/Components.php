@@ -9,11 +9,10 @@ class Components extends Model
     protected $fillable = ['name', 'type_id', 'device_id'];
 
     public function type() {
-        return $this->belongsToMany(Types::class);
+        return $this->belongsTo(Types::class,'type_id');
     }
 
     public function device() {
-        return $this->belongsToMany(Devices::class);
+        return $this->belongsTo(Devices::class, 'device_id');
     }
-
 }

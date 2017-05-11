@@ -9,6 +9,10 @@
 </a>
 
 <table>
+    <tr>
+        <td><b>{{ trans('messages.devices.company') }}</b></td>
+        <td><b>{{ trans('messages.devices.model') }}</b></td>
+    </tr>
 @foreach ($devices as $device)
     <tr>
         <td>{{ $device->company_name }}</td>

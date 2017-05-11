@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts/index');
 });
 //Devices
 Route::group(['prefix' => 'devices'], function () {
@@ -82,4 +82,27 @@ Route::group(['prefix' => 'components'], function () {
         ->name('components.delete');
     Route::delete('destroy/{id}', "$controller@destroy")
         ->name('components.destroy');
+});
+//Specifics
+Route::group(['prefix' => 'specifics'], function () {
+
+    $controller = 'SpecificsController';
+
+    Route::get('', "$controller@index")
+        ->name('specifics.index');
+
+    Route::get('create', "$controller@create")
+        ->name('specifics.create');
+    Route::post('store', "$controller@store")
+        ->name('specifics.store');
+
+    Route::get('edit/{id}', "$controller@edit")
+        ->name('specifics.edit');
+    Route::put('update/{id}', "$controller@update")
+        ->name('specifics.update');
+
+    Route::get('delete/{id}', "$controller@delete")
+        ->name('specifics.delete');
+    Route::delete('destroy/{id}', "$controller@destroy")
+        ->name('specifics.destroy');
 });

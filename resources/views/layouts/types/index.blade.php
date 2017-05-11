@@ -9,6 +9,9 @@
 </a>
 
 <table>
+    <tr>
+        <td><b>{{ trans('messages.types.name') }}</b></td>
+    </tr>
 @foreach ($types as $type)
     <tr>
         <td>{{ $type->name }}</td>

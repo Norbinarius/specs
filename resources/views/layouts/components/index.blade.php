@@ -3,19 +3,20 @@
 @section('title', trans('messages.components.list'))
 
 @section('main')
-
 <a href="{{ route('components.create') }}">
     {{ trans('messages.create') }}
 </a>
-
 <table>
+    <tr>
+        <td><b>{{ trans('messages.components.name') }}</b></td>
+        <td><b>{{ trans('messages.components.type') }}</b></td>
+        <td><b>{{ trans('messages.components.device') }}</b></td>
+    </tr>
 @foreach ($components as $component)
     <tr>
         <td>{{ $component->name }}</td>
-        @foreach($component->type as $t)
-            <td> {{ $t->name }} </td>
-        @endforeach
-        <td>{{ $component->device_id }}</td>
+        <td>{{ $component->type->name }}</td>
+        <td>{{ $component->device->company_name.' '.$component->device->model_name }}</td>
         <td>
             <a href="{{ route('components.edit', [
                 'id' => $component->id

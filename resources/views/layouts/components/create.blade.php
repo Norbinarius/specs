@@ -10,14 +10,14 @@
     ])
 }}
 
-    {{ Form::label( trans('messages.types.name')) }}
+    {{ Form::label( trans('messages.components.name')) }}
     {{ Form::text('name') }}
 
-    {{ Form::label( trans('messages.types.name')) }}
-    {{ Form::select('type_id', $type , null, [])}}
+    {{ Form::label( trans('messages.components.type')) }}
+    {{ Form::select('type_id', $type , null)}}
 
-    {{ Form::label( trans('messages.types.name')) }}
-    {{ Form::select('device_id', $device , null, [])}}
+    {{ Form::label( trans('messages.components.device')) }}
+    {{ Form::select('device_id', $device , null)}}
 
     {{ Form::submit() }}
 
