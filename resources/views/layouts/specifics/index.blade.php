@@ -1,16 +1,23 @@
-@extends('layouts.base')
+@extends('layouts.app')
+
 
 @section('title', trans('messages.specifics.list'))
 
+
+@section('content')
 @section('main')
+<a href="{{ route('layouts.index') }}">
+    <button class="btn btn-primary big-btn">{{ trans('messages.gomain') }}</button>
+</a>
 <a href="{{ route('specifics.create') }}">
-    {{ trans('messages.create') }}
+    <button class="btn btn-primary big-btn">{{ trans('messages.create') }}</button>
 </a>
 <table>
     <tr>
-        <td><b>{{ trans('messages.specifics.name') }}</b></td>
-        <td><b>{{ trans('messages.specifics.component') }}</b></td>
-        <td><b>{{ trans('messages.specifics.component_other') }}</b></td>
+        <th>{{ trans('messages.specifics.name') }}</th>
+        <th>{{ trans('messages.specifics.component') }}</th>
+        <th>{{ trans('messages.specifics.component_other') }}</th>
+        <th colspan="2"></th>
     </tr>
 @foreach ($specifics as $specific)
     <tr>
@@ -21,18 +28,18 @@
             <a href="{{ route('specifics.edit', [
                 'id' => $specific->id
             ]) }}">
-                {{ trans('messages.edit') }}
+                <button class="btn btn-primary">{{ trans('messages.edit') }}</button>
             </a>
         </td>
         <td>
             <a href="{{ route('specifics.delete', [
                 'id' => $specific->id
             ]) }}">
-                {{ trans('messages.delete') }}
+                <button class="btn btn-primary">{{ trans('messages.delete') }}</button>
             </a>
         </td>
     </tr>
 @endforeach
 </table>
-
+@endsection
 @endsection

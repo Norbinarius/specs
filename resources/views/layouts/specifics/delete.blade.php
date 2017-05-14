@@ -1,9 +1,10 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
 @section('title',  trans('messages.deletion'))
 
+@section('content')
 @section('main')
-    <p>Вы уверены что хотите удалить запись?</p>
+    <p>{{trans('messages.areyousure')}}</p>
 {{
     Form::model($entity, [
         'method' => 'DELETE',
@@ -14,8 +15,9 @@
     ])
 }}
 
-    {{ Form::submit(trans('messages.confirm')) }}
+    {{ Form::submit(trans('messages.confirm'), ['class' => 'btn btn-primary']) }}
 
 {{ Form::close() }}
 
+@endsection
 @endsection

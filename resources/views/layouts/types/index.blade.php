@@ -1,16 +1,20 @@
-@extends('layouts.base')
+@extends('layouts.app')
+
 
 @section('title', trans('messages.types.list'))
 
+
+@section('content')
 @section('main')
-
-<a href="{{ route('types.create') }}">
-    {{ trans('messages.create') }}
-</a>
-
+    <a href="{{ route('layouts.index') }}">
+        <button class="btn btn-primary big-btn">{{ trans('messages.gomain') }}</button>
+    </a>
+    <a href="{{ route('types.create') }}">
+        <button class="btn btn-primary big-btn">{{ trans('messages.create') }}</button>
+    </a>
 <table>
     <tr>
-        <td><b>{{ trans('messages.types.name') }}</b></td>
+        <th>{{ trans('messages.types.name') }}<th>
     </tr>
 @foreach ($types as $type)
     <tr>
@@ -19,18 +23,17 @@
             <a href="{{ route('types.edit', [
                 'id' => $type->id
             ]) }}">
-                {{ trans('messages.edit') }}
+                <button class="btn btn-primary">{{ trans('messages.edit') }}</button>
             </a>
-        </td>
-        <td>
             <a href="{{ route('types.delete', [
                 'id' => $type->id
             ]) }}">
-                {{ trans('messages.delete') }}
+                <button class="btn btn-primary">{{ trans('messages.delete') }}</button>
             </a>
         </td>
     </tr>
 @endforeach
 </table>
 
+@endsection
 @endsection

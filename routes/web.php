@@ -12,8 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('layouts/index');
-});
+    return view('layouts.index');
+})->name('layouts.index');
 //Devices
 Route::group(['prefix' => 'devices'], function () {
 
@@ -106,3 +106,6 @@ Route::group(['prefix' => 'specifics'], function () {
     Route::delete('destroy/{id}', "$controller@destroy")
         ->name('specifics.destroy');
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');

@@ -29,5 +29,8 @@ return [
     'specifics.list' => 'Список спецификаций',
     'specifics.name' => 'Название спецификации',
     'specifics.component' => 'Первый компонент',
-    'specifics.component_other' => 'Второй компонент'
+    'specifics.component_other' => 'Второй компонент',
+    'gomain' => 'Главная страница',
+
+    'areyousure' => 'Вы уверены что хотите удалить запись?'
 ];

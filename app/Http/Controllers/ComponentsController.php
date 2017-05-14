@@ -47,9 +47,7 @@ class ComponentsController extends Controller
         $component = Components::findOrFail($id);
         $attributes = $request->only(['name', 'type_id', 'device_id']);
         $component->update($attributes);
-        return redirect(route('components.edit', [
-            'id' => $component->id,
-        ]));
+        return redirect(route('components.index'));
     }
 
     public function delete($id)

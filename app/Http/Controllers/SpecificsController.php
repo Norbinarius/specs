@@ -44,9 +44,7 @@ class SpecificsController extends Controller
         $specific = Specifics::findOrFail($id);
         $attributes = $request->only(['name', 'component_id', 'component_other__id']);
         $specific->update($attributes);
-        return redirect(route('specifics.edit', [
-            'id' => $specific->id,
-        ]));
+        return redirect(route('specifics.index'));
     }
 
     public function delete($id)

@@ -37,9 +37,7 @@ class DevicesController extends Controller
         $device = Devices::findOrFail($id);
         $attributes = $request->only(['company_name', 'model_name']);
         $device->update($attributes);
-        return redirect(route('devices.edit', [
-            'id' => $device->id
-        ]));
+        return redirect(route('devices.index'));
     }
 
     public function delete($id)

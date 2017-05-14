@@ -1,16 +1,21 @@
-@extends('layouts.base')
+@extends('layouts.app')
 
 @section('title', trans('messages.components.list'))
 
+@section('content')
 @section('main')
-<a href="{{ route('components.create') }}">
-    {{ trans('messages.create') }}
-</a>
+    <a href="{{ route('layouts.index') }}">
+        <button class="btn btn-primary big-btn">{{ trans('messages.gomain') }}</button>
+    </a>
+    <a href="{{ route('components.create') }}">
+        <button class="btn btn-primary big-btn">{{ trans('messages.create') }}</button>
+    </a>
 <table>
     <tr>
-        <td><b>{{ trans('messages.components.name') }}</b></td>
-        <td><b>{{ trans('messages.components.type') }}</b></td>
-        <td><b>{{ trans('messages.components.device') }}</b></td>
+        <th>{{ trans('messages.components.name') }}</th>
+        <th>{{ trans('messages.components.type') }}</th>
+        <th>{{ trans('messages.components.device') }}</th>
+        <th colspan="2"></th>
     </tr>
 @foreach ($components as $component)
     <tr>
@@ -21,18 +26,19 @@
             <a href="{{ route('components.edit', [
                 'id' => $component->id
             ]) }}">
-                {{ trans('messages.edit') }}
+                <button class="btn btn-primary">{{ trans('messages.edit') }}</button>
             </a>
         </td>
         <td>
             <a href="{{ route('components.delete', [
                 'id' => $component->id
             ]) }}">
-                {{ trans('messages.delete') }}
+                <button class="btn btn-primary">{{ trans('messages.delete') }}</button>
             </a>
         </td>
     </tr>
 @endforeach
 </table>
+@endsection
 
 @endsection

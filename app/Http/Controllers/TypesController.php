@@ -37,9 +37,7 @@ class TypesController extends Controller
         $type = Types::findOrFail($id);
         $attributes = $request->only(['name']);
         $type->update($attributes);
-        return redirect(route('types.edit', [
-            'id' => $type->id
-        ]));
+        return redirect(route('types.index'));
     }
 
     public function delete($id)
