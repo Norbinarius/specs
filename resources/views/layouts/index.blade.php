@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', trans('messages.main'))
+@section('title', trans('messages.admin'))
 
 @section('content')
 @section('main')

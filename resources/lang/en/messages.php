@@ -29,5 +29,22 @@ return [
     'specifics.list' => 'Specifications list',
     'specifics.name' => 'Specification name',
     'specifics.component' => 'First component',
-    'specifics.component_other' => 'Second component'
+    'specifics.component_other' => 'Second component',
+    'gomain' => 'Main page',
+
+    'areyousure' => 'Are you sure you want to delete this record?',
+    'login' => 'Login',
+    'logout' => 'Logout',
+    'loginto' => 'Sign in',
+    'reg' => 'Register',
+    'reginto' => 'Sign up',
+    'email' => 'E-Mail Adress',
+    'pass' => 'Password',
+    'remeb' => 'Remember Me',
+    'forgot' => 'Forgot Your Password?',
+    'name' => 'Name',
+    'passconfirm' => 'Confirm password',
+    'passreset' => 'Password reset',
+    'sendpassreset' => 'Send Password Reset Link',
+    'admin' => 'Administration',
 ];
