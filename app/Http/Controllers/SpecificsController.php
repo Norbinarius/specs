@@ -14,6 +14,7 @@ class SpecificsController extends Controller
 {
     public function create()
     {
+        $this->authorize('action', Specifics::class);
         $specific = new Specifics();
         $components = Components::orderBy('name')->pluck('name','id');
         return view('layouts.specifics.create', [
@@ -31,6 +32,7 @@ class SpecificsController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('action', Specifics::class);
         $specific = Specifics::findOrFail($id);
         $components = Components::orderBy('name')->pluck('name','id');
         return view('layouts.specifics.edit', [
@@ -49,6 +51,7 @@ class SpecificsController extends Controller
 
     public function delete($id)
     {
+        $this->authorize('action', Specifics::class);
         $specific = Specifics::findOrFail($id);
         return view('layouts.specifics.delete', [
             'entity' => $specific
@@ -68,7 +71,7 @@ class SpecificsController extends Controller
             'specifics' => Specifics::orderBy('name', 'ASC')
                 ->with('component')
                 ->with('component_other')
-                ->get()
+                ->paginate(10)
         ]);
     }
 }

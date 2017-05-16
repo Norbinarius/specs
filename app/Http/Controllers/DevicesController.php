@@ -5,13 +5,14 @@ namespace App\Http\Controllers;
 use App\Devices;
 use App\Http\Requests\DevicesRequest;
 use Illuminate\Http\Request;
+use DB;
 
 class DevicesController extends Controller
 {
     public function create()
     {
+        $this->authorize('action', Devices::class);
         $device = new Devices();
-        
         return view('layouts.devices.create', [
             'entity' => $device
         ]);
@@ -26,6 +27,7 @@ class DevicesController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('action', Devices::class);
         $device = Devices::findOrFail($id);
         return view('layouts.devices.edit', [
             'entity' => $device
@@ -42,6 +44,7 @@ class DevicesController extends Controller
 
     public function delete($id)
     {
+        $this->authorize('action', Devices::class);
         $device = Devices::findOrFail($id);
         return view('layouts.devices.delete', [
             'entity' => $device
@@ -57,9 +60,9 @@ class DevicesController extends Controller
 
     public function index()
     {
+        $devices = DB::table('devices')->orderBy('company_name', 'ASC')->paginate(10);
         return view('layouts.devices.index', [
-            'devices' => Devices::orderBy('company_name', 'ASC')
-                                 ->get()
+            'devices' => $devices
         ]);
     }
 }

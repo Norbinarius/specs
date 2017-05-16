@@ -46,5 +46,5 @@ return [
     'passconfirm' => 'Confirm password',
     'passreset' => 'Password reset',
     'sendpassreset' => 'Send Password Reset Link',
-    'admin' => 'Administration',
+    'admin' => 'List of tables',
 ];

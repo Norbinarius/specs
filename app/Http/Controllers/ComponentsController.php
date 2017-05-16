@@ -13,6 +13,7 @@ class ComponentsController extends Controller
 {
     public function create()
     {
+        $this->authorize('action', Components::class);
         $component = new Components();
         $type = Types::orderBy('name')->pluck('name','id');
         $device = Devices::select(DB::raw('CONCAT(company_name, " ", model_name) AS full_name'), 'id')->pluck('full_name','id');
@@ -32,6 +33,7 @@ class ComponentsController extends Controller
 
     public function edit($id)
     {
+        $this->authorize('action', Components::class);
         $component = Components::findOrFail($id);
         $type = Types::orderBy('name')->pluck('name','id');
         $device = Devices::select(DB::raw('CONCAT(company_name, " ", model_name) AS full_name'), 'id')->pluck('full_name','id');
@@ -52,6 +54,7 @@ class ComponentsController extends Controller
 
     public function delete($id)
     {
+        $this->authorize('action', Components::class);
         $component = Components::findOrFail($id);
         return view('layouts.components.delete', [
             'entity' => $component
@@ -71,7 +74,7 @@ class ComponentsController extends Controller
             'components' => Components::orderBy('name', 'ASC')
                 ->with('type')
                 ->with('device')
-                ->get()
+                ->paginate(10)
         ]);
     }
 }

@@ -71,3 +71,19 @@ th {
     color:#4CAF50;;
     background-color:#fff
 }
+
+
+.pagination > .active > a,
+.pagination > .active > a:focus,
+.pagination > .active > a:hover,
+.pagination > .active > span,
+.pagination > .active > span:focus,
+.pagination > .active > span:hover {
+    background-color:#4CAF50;;
+    border-color:#DDD;
+}
+
+.pagination > li > a,
+.pagination > li > span {
+    color:#4CAF50;;
+}
