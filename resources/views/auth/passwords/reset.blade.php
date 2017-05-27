@@ -2,7 +2,6 @@
 
 @section('title', trans('messages.login'))
 
-@section('content')
 @section('main')
 
     <div class="panel-body">
@@ -67,5 +66,4 @@
                         </div>
                     </form>
                 </div>
-@endsection
 @endsection

@@ -27,6 +27,8 @@ class TypesRequest extends FormRequest
             'name' => [
                 'max:191',
                 'min:1',
+                'unique:types',
+                'regex:/^[A-Z][a-z0-9_-]+/',
                 'required'
             ]
         ];

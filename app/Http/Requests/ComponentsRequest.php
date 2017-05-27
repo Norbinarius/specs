@@ -27,6 +27,8 @@ class ComponentsRequest extends FormRequest
             'name' => [
                 'max:191',
                 'min:1',
+                'unique:components',
+                'regex:/^[A-Z][a-z0-9_-]+/',
                 'required'
             ]
         ];

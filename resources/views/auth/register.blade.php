@@ -2,7 +2,6 @@
 
 @section('title', trans('messages.reg'))
 
-@section('content')
 @section('main')
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('register') }}">
@@ -66,5 +65,4 @@
                             </div>
                         </div>
                     </form>
-@endsection
 @endsection

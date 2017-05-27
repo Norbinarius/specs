@@ -27,11 +27,14 @@ class DevicesRequest extends FormRequest
             'company_name' => [
                 'max:191',
                 'min:1',
+                'regex:/^[A-Z][A-Za-z0-9_-]+/',
                 'required'
             ],
             'model_name' => [
                 'max:191',
                 'min:1',
+                'unique:devices',
+                'regex:/^[A-Z][A-Za-z0-9_-]+/',
                 'required'
             ]
         ];

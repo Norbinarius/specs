@@ -2,7 +2,6 @@
 
 @section('title',  trans('messages.edition'))
 
-@section('content')
 @section('main')
 
     {{
@@ -32,11 +31,18 @@
             </div>
         </div>
         <div class="form-group">
+            <div class="col-md-2 col-md-offset-2">
+                {{ Form::label(null, trans('messages.image')) }}
+            </div>
+            <div class="col-md-6">
+                {{ Form::select('image_id', $image->merge($imagenull) , null, ['class' => 'form-control'])}}
+            </div>
+        </div>
+        <div class="form-group">
             <div class="col-md-6 col-md-offset-4">
                 {{ Form::submit(trans('messages.confirm'), ['class' => 'btn btn-primary'])}}
             </div>
         </div>
         {{ Form::close() }}
     </div>
-@endsection
 @endsection

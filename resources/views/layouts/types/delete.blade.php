@@ -2,7 +2,6 @@
 
 @section('title',  trans('messages.deletion'))
 
-@section('content')
 @section('main')
     <p>{{trans('messages.areyousure')}}</p>
     {{
@@ -19,5 +18,4 @@
 
     {{ Form::close() }}
 
-@endsection
 @endsection

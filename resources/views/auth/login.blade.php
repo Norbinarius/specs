@@ -2,7 +2,6 @@
 
 @section('title', trans('messages.login'))
 
-@section('content')
 @section('main')
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
@@ -58,5 +57,4 @@
                             </div>
                         </div>
                     </form>
-@endsection
 @endsection

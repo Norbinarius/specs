@@ -4,7 +4,6 @@
 @section('title', trans('messages.specifics.list'))
 
 
-@section('content')
 @section('main')
 <a href="{{ route('layouts.index') }}">
     <button class="btn btn-primary big-btn">{{ trans('messages.gomain') }}</button>
@@ -48,5 +47,4 @@
 <div class="text-center">
     {{$specifics->links()}}
 </div>
-@endsection
 @endsection

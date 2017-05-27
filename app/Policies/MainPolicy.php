@@ -12,6 +12,6 @@ class MainPolicy
 
     public function action(User $user)
     {
-        return $user->email == 'admin@example.com';
+        return $user->admin == true;
     }
 }

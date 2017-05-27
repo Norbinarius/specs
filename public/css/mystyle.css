@@ -26,6 +26,9 @@ th {
     border-top-right-radius:3px;
     border-top-left-radius:3px
 }
+.images {
+    width: 150px;
+}
 .big-btn {
     padding:6px;
 }

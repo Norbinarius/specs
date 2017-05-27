@@ -4,7 +4,6 @@
 @section('title', trans('messages.types.list'))
 
 
-@section('content')
 @section('main')
     <a href="{{ route('layouts.index') }}">
         <button class="btn btn-primary big-btn">{{ trans('messages.gomain') }}</button>
@@ -42,5 +41,4 @@
     {{$types->links()}}
 </div>
 
-@endsection
 @endsection

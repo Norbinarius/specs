@@ -2,7 +2,6 @@
 
 @section('title', trans('messages.components.list'))
 
-@section('content')
 @section('main')
     <a href="{{ route('layouts.index') }}">
         <button class="btn btn-primary big-btn">{{ trans('messages.gomain') }}</button>
@@ -46,5 +45,4 @@
     <div class="text-center">
         {{$components->links()}}
     </div>
-@endsection
 @endsection

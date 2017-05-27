@@ -2,7 +2,6 @@
 
 @section('title', trans('messages.admin'))
 
-@section('content')
 @section('main')
 
 <div class="form-horizontal">
@@ -35,5 +34,4 @@
         </div>
     </div>
 </div>
-@endsection
 @endsection

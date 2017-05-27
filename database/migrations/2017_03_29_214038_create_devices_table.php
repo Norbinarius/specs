@@ -18,6 +18,14 @@ class CreateDevicesTable extends Migration
 			$table->string('company_name', 191);
 			$table->string('model_name', 191)
 				  ->unique();
+
+            $table->integer('image_id')
+                ->nullable()->unsigned();
+            $table->foreign('image_id')
+                ->references('id')
+                ->on('images')
+                ->onDelete('CASCADE')
+                ->onUpdate('RESTRICT');
             $table->timestamps();
         });
     }

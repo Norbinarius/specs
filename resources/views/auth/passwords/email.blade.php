@@ -2,7 +2,6 @@
 
 @section('title', trans('messages.passreset'))
 
-@section('content')
 @section('main')
                 <div class="panel-body">
                     @if (session('status'))
@@ -37,5 +36,4 @@
                         </div>
                     </form>
                 </div>
-@endsection
 @endsection

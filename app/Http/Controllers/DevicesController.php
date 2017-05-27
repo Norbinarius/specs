@@ -6,6 +6,7 @@ use App\Devices;
 use App\Http\Requests\DevicesRequest;
 use Illuminate\Http\Request;
 use DB;
+use App\Image;
 
 class DevicesController extends Controller
 {
@@ -14,13 +15,15 @@ class DevicesController extends Controller
         $this->authorize('action', Devices::class);
         $device = new Devices();
         return view('layouts.devices.create', [
-            'entity' => $device
+            'entity' => $device,
+            'image' => Image::orderBy('id')->pluck('image_name','id'),
+            'imagenull' => [null => 'Без изображения']
         ]);
     }
 
     public function store(DevicesRequest $request)
     {
-        $attributes = $request->only(['company_name', 'model_name']);
+        $attributes = $request->only(['company_name', 'model_name', 'image_id']);
         Devices::create($attributes);
         return redirect(route('devices.index'));
     }
@@ -30,14 +33,16 @@ class DevicesController extends Controller
         $this->authorize('action', Devices::class);
         $device = Devices::findOrFail($id);
         return view('layouts.devices.edit', [
-            'entity' => $device
+            'entity' => $device,
+            'image' => Image::orderBy('id')->pluck('image_name','id'),
+            'imagenull' => [null => 'Без изображения']
         ]);
     }
 
     public function update(Request $request, $id)
     {
         $device = Devices::findOrFail($id);
-        $attributes = $request->only(['company_name', 'model_name']);
+        $attributes = $request->only(['company_name', 'model_name', 'image_id']);
         $device->update($attributes);
         return redirect(route('devices.index'));
     }
@@ -60,9 +65,10 @@ class DevicesController extends Controller
 
     public function index()
     {
-        $devices = DB::table('devices')->orderBy('company_name', 'ASC')->paginate(10);
         return view('layouts.devices.index', [
-            'devices' => $devices
+            'devices' => Devices::orderBy('company_name', 'ASC')
+            ->with('image')
+            ->paginate(10)
         ]);
     }
 }

@@ -37,6 +37,17 @@ Route::group(['prefix' => 'devices'], function () {
     Route::delete('destroy/{id}', "$controller@destroy")
          ->name('devices.destroy');
 });
+
+Route::group(['prefix' => 'images'], function () {
+    $controller = 'ImageController';
+    Route::get('', "$controller@index")->name('images.index');
+    Route::get('{id}', "$controller@show")->name('images.show')->where('id', '\d+');
+    Route::get('add', "$controller@add")->name('images.add');
+    Route::post('', "$controller@create")->name('images.create');
+    Route::get('{id}/remove', "$controller@remove")->name('images.remove');
+    Route::delete('{id}', "$controller@destroy")->name('images.destroy')->where('id','\d+');
+});
+
 //Types
 Route::group(['prefix' => 'types'], function () {
 
