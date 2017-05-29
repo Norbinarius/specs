@@ -4,14 +4,13 @@
 @section('title', trans('messages.images'))
 
 
-@section('content')
 @section('main')
-    @can('action', \App\Devices::class)
+    @can('action', \App\Image::class)
         <a href="{{ route('devices.index') }}">
             <button class="btn btn-primary big-btn">{{ trans('messages.devices') }}</button>
         </a>
     @endcan
-    @can('action', \App\Devices::class)
+    @can('action', \App\Image::class)
         <a href="{{ route('images.add') }}">
             <button class="btn btn-primary big-btn">{{ trans('messages.create') }}</button>
         </a>
@@ -35,5 +34,4 @@
         {{$images->links()}}
     </div>
 
-@endsection
 @endsection

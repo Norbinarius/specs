@@ -2,7 +2,6 @@
 
 @section('title',  trans('messages.creation'))
 
-@section('content')
 @section('main')
 
     {{
@@ -48,5 +47,4 @@
         </div>
         {{ Form::close() }}
     </div>
-@endsection
 @endsection

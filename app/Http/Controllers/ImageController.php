@@ -22,19 +22,21 @@ class ImageController extends Controller
     }
 
     public function show($id) {
-
+        $this->authorize('action', Image::class);
         return view('layouts.images.show', [
             'image' => Image::findOrFail($id)
         ]);
     }
 
     public function add() {
+        $this->authorize('action', Image::class);
         return view('layouts.images.new', [
            'image' => new Image()
         ]);
     }
 
     public function create(CreateImageRequest $request) {
+        $this->authorize('action', Image::class);
         $file = $request->file('file');
         $filename = $this->fixedStore($file, '', $this->disk);
         $nameimg = $request->input('image_name');
@@ -52,6 +54,7 @@ class ImageController extends Controller
     }
 
     public function fixedStore($file, $path, $disk) {
+        $this->authorize('action', Image::class);
         $folder = Storage::disk($disk)->getAdapter()->getPathPrefix();
         $temp = tempnam($folder, '');
         $filename = pathinfo($temp, PATHINFO_FILENAME);
@@ -69,13 +72,14 @@ class ImageController extends Controller
     }
 
     public function remove($id) {
-
+        $this->authorize('action', Image::class);
         return view('layouts.images.remove', [
             'image' => Image::findOrFail($id)
         ]);
     }
 
     public function destroy($id) {
+        $this->authorize('action', Image::class);
         $image = Image::findOrFail($id);
         Storage::disk($this->disk)->delete($image->filename);
         $image->delete();
