@@ -5,12 +5,12 @@
 
 
 @section('main')
-    @can('action', \App\Image::class)
+    @can('action', \App\Devices::class)
         <a href="{{ route('devices.index') }}">
             <button class="btn btn-primary big-btn">{{ trans('messages.devices') }}</button>
         </a>
     @endcan
-    @can('action', \App\Image::class)
+    @can('action', \App\Devices::class)
         <a href="{{ route('images.add') }}">
             <button class="btn btn-primary big-btn">{{ trans('messages.create') }}</button>
         </a>

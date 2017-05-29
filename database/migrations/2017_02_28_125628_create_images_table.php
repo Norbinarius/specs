@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use DB;
 
 class CreateImagesTable extends Migration
 {
@@ -19,6 +20,7 @@ class CreateImagesTable extends Migration
             $table->string('filename', 191);
             $table->timestamps();
         });
+
     }
 
     /**

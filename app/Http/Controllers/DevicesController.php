@@ -16,8 +16,7 @@ class DevicesController extends Controller
         $device = new Devices();
         return view('layouts.devices.create', [
             'entity' => $device,
-            'image' => Image::orderBy('id')->pluck('image_name','id'),
-            'imagenull' => [null => 'Без изображения']
+            'image' => Image::orderBy('id')->pluck('image_name','id')->toArray()
         ]);
     }
 
@@ -34,8 +33,7 @@ class DevicesController extends Controller
         $device = Devices::findOrFail($id);
         return view('layouts.devices.edit', [
             'entity' => $device,
-            'image' => Image::orderBy('id')->pluck('image_name','id'),
-            'imagenull' => [null => 'Без изображения']
+            'image' => Image::orderBy('id')->pluck('image_name','id')->toArray()
         ]);
     }
 

@@ -35,7 +35,7 @@
                 {{ Form::label(null, trans('messages.image')) }}
             </div>
             <div class="col-md-6">
-                {{ Form::select('image_id', $image->merge($imagenull) , null, ['class' => 'form-control'])}}
+                {{ Form::select('image_id',  [null => trans('messages.nonimage')] + $image, null, ['class' => 'form-control'])}}
             </div>
         </div>
         <div class="form-group">
