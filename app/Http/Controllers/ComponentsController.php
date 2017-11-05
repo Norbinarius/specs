@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Components;
 use App\Devices;
-use DB;
 use App\Types;
 use App\Http\Requests\ComponentsRequest;
 use Illuminate\Http\Request;

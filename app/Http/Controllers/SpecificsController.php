@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Components;
 use App\Specifics;
 use App\Devices;
-use DB;
 use App\Types;
 use App\Http\Requests\SpecificsRequest;
 use Illuminate\Http\Request;

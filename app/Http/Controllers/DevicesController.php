@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Devices;
 use App\Http\Requests\DevicesRequest;
 use Illuminate\Http\Request;
-use DB;
 use App\Image;
 
 class DevicesController extends Controller
